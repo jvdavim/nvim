@@ -14,28 +14,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { "theprimeagen/harpoon" },
     { "folke/tokyonight.nvim" },
+    { "folke/trouble.nvim",   dependencies = { "nvim-tree/nvim-web-devicons", opts = {} } },
     { "folke/neodev.nvim" },
-    {
-        "nvim-telescope/telescope.nvim",
-        branch = "0.1.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim" }
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        ensure_installed = {
-            "bash", "python", "rust", "javascript", "lua", "luadoc", "tsx", "typescript", "vim", "vimdoc", "yaml",
-            "json", "markdown", "markdown_inline", "regex", "toml", "jsonc", "jsdoc", "html", "diff", "go", "c", "java",
-            "ocaml", "php", "sql", "xml", "c_sharp", "css", "csv", "cuda", "dockerfile", "gitcommit", "gitignore",
-            "gitattributes" }
-    },
-    { "mbbill/undotree" },
-    { "mrjones2014/smart-splits.nvim" },
-    { "mhartington/formatter.nvim" },
-    { "folke/trouble.nvim",           dependencies = { "nvim-tree/nvim-web-devicons", opts = {} } },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -43,13 +24,59 @@ require("lazy").setup({
             vim.o.timeout = true
             vim.o.timeoutlen = 300
         end,
-        opts = {}
+        opts = {},
+    },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/nvim-cmp" },
+    { "mhartington/formatter.nvim" },
+    { "neovim/nvim-lspconfig" },
+    {
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        ensure_installed = {
+            "bash",
+            "python",
+            "rust",
+            "javascript",
+            "lua",
+            "luadoc",
+            "tsx",
+            "typescript",
+            "vim",
+            "vimdoc",
+            "yaml",
+            "json",
+            "markdown",
+            "markdown_inline",
+            "regex",
+            "toml",
+            "jsonc",
+            "jsdoc",
+            "html",
+            "diff",
+            "go",
+            "c",
+            "java",
+            "ocaml",
+            "php",
+            "sql",
+            "xml",
+            "c_sharp",
+            "css",
+            "csv",
+            "cuda",
+            "dockerfile",
+            "gitcommit",
+            "gitignore",
+            "gitattributes",
+        },
     },
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     { "VonHeikemen/lsp-zero.nvim",        branch = "v2.x" },
-    { "neovim/nvim-lspconfig" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/nvim-cmp" },
-    { "L3MON4D3/LuaSnip" },
 })
