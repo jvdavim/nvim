@@ -26,9 +26,11 @@ require("lazy").setup({
         end,
         opts = {},
     },
+    { "lewis6991/gitsigns.nvim" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/nvim-cmp" },
     { "mhartington/formatter.nvim" },
+    { "mrjones2014/smart-splits.nvim" },
     { "neovim/nvim-lspconfig" },
     {
         "nvim-telescope/telescope.nvim",
