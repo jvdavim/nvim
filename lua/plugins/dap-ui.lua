@@ -16,5 +16,6 @@ return {
         end
         vim.keymap.set("n", "<leader>b", "<cmd> DapToggleBreakpoint <CR>")
         vim.keymap.set("n", "<leader>db", "<cmd> DapContinue <CR>")
+        require("dap.ext.vscode").load_launchjs()
     end,
 }
