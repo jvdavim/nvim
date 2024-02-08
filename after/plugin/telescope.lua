@@ -1,4 +1,15 @@
 local builtin = require("telescope.builtin")
+local telescope = require("telescope")
+
+telescope.setup({
+    pickers = {
+        find_files = {
+            hidden = true,
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            find_command = { "rg", "--files", "--hidden", "--glob=!**/.git/*" },
+        },
+    },
+})
 
 -- Open FuzzyFinder
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]uzzy [F]ind Files" })

@@ -12,4 +12,6 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 vim.keymap.set("n", "<leader>b", "<cmd> DapToggleBreakpoint <CR>")
 vim.keymap.set("n", "<leader>db", "<cmd> DapContinue <CR>")
+vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
 require("dap.ext.vscode").load_launchjs()
