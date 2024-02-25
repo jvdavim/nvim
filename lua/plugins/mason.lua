@@ -2,11 +2,14 @@ return {
     "williamboman/mason.nvim",
     opts = {
         ensure_installed = {
-            "black",
             "debugpy",
             "mypy",
             "ruff",
-            "pyright",
+            "ruff-lsp",
+            "usort",
+            "csharp-language-server",
+            "csharpier",
+            "lua-language-server"
         },
     },
 }
