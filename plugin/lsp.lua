@@ -2,7 +2,7 @@ local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
-    lsp_zero.buffer_autoformat()
+    -- lsp_zero.buffer_autoformat()
     client.config.capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
     if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
         local semantic = client.config.capabilities.textDocument.semanticTokens
@@ -21,7 +21,7 @@ require("mason-lspconfig").setup({
         lsp_zero.default_setup,
         lua_ls = require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls()),
         sqlls = require("lspconfig").lua_ls.setup({}),
-        pyright = require("lspconfig").pyright.setup({}),
+        ruff_lsp = require("lspconfig").ruff_lsp.setup({}),
         rust_analyzer = require("lspconfig").rust_analyzer.setup({}),
     },
 })
