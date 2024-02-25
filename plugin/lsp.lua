@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
         lsp_zero.default_setup,
         lua_ls = require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls()),
         sqlls = require("lspconfig").lua_ls.setup({}),
+        pyright = require("lspconfig").pyright.setup({}),
         ruff_lsp = require("lspconfig").ruff_lsp.setup({}),
         rust_analyzer = require("lspconfig").rust_analyzer.setup({}),
     },
