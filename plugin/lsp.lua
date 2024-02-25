@@ -2,7 +2,6 @@ local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
-    lsp_zero.buffer_autoformat()
     client.config.capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
     if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
         local semantic = client.config.capabilities.textDocument.semanticTokens
@@ -69,7 +68,7 @@ cmp.setup({
     formatting = cmp_format,
     mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ["<Tab>"] = cmp_action.luasnip_supertab(),
+        ["C-<Tab>"] = cmp_action.luasnip_supertab(),
         ["<C-Space>"] = cmp.mapping.complete(),
     }),
 })
