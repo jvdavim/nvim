@@ -10,3 +10,5 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 		vim.fn.jobstart('notify-send "hello"', { detach = true })
 	end,
 })
+
+vim.cmd("set list listchars+=space:·,eol:↵")

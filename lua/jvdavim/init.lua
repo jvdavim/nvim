@@ -1,2 +1,2 @@
-require("jvdavim.remap")
-require("jvdavim.set")
+require("jvdavim.keymaps")
+require("jvdavim.options")
