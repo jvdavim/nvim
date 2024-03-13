@@ -18,13 +18,15 @@ require("mason-lspconfig").setup({
 	ensure_installed = { "tsserver", "eslint" },
 	handlers = {
 		lsp_zero.default_setup,
-		lua_ls = require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls()),
-		sqlls = require("lspconfig").lua_ls.setup({}),
-		pyright = require("lspconfig").pyright.setup({}),
-		ruff_lsp = require("lspconfig").ruff_lsp.setup({}),
-		rust_analyzer = require("lspconfig").rust_analyzer.setup({}),
-		csharp_ls = require("lspconfig").csharp_ls.setup({}),
-		typescript = require("lspconfig").tsserver.setup({}),
+		require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls()),
+		require("lspconfig").lua_ls.setup({}),
+		require("lspconfig").pyright.setup({}),
+		require("lspconfig").ruff_lsp.setup({}),
+		require("lspconfig").rust_analyzer.setup({}),
+		require("lspconfig").tsserver.setup({}),
+		require("lspconfig").omnisharp.setup({
+			cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+		}),
 	},
 })
 
