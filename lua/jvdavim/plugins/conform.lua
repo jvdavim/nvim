@@ -14,8 +14,8 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
-			javascript = { { "prettierd", "prettier" } },
-			typescript = { { "prettierd", "prettier" } },
+			javascript = { { "eslint_d", "prettierd", "prettier" } },
+			typescript = { { "eslint_d", "prettierd", "prettier" } },
 			javascriptreact = { { "prettierd", "prettier" } },
 			typescriptreact = { { "prettierd", "prettier" } },
 			svelte = { { "prettierd", "prettier" } },
@@ -35,6 +35,7 @@ return {
 				end
 			end,
 		},
+		go = { "gofmt", "gofumpt" },
 		format_on_save = false,
 	},
 }

@@ -24,9 +24,7 @@ require("mason-lspconfig").setup({
 		require("lspconfig").ruff_lsp.setup({}),
 		require("lspconfig").rust_analyzer.setup({}),
 		require("lspconfig").tsserver.setup({}),
-		require("lspconfig").omnisharp.setup({
-			cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
-		}),
+		require("lspconfig").csharp_ls.setup({}),
 	},
 })
 
