@@ -1,44 +1,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    ensure_installed = {
-        "bash",
-        "python",
-        "rust",
-        "javascript",
-        "lua",
-        "luadoc",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-        "json",
-        "markdown",
-        "markdown_inline",
-        "regex",
-        "toml",
-        "jsonc",
-        "jsdoc",
-        "html",
-        "diff",
-        "go",
-        "c",
-        "java",
-        "ocaml",
-        "php",
-        "sql",
-        "xml",
-        "c_sharp",
-        "css",
-        "csv",
-        "cuda",
-        "dockerfile",
-        "gitcommit",
-        "gitignore",
-        "gitattributes",
-    },
     config = function()
+        require("nvim-treesitter.install").prefer_git = true
         require("nvim-treesitter.configs").setup({
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
             --	ensure_installed = { "python", "c_sharp", "go", "sql", "bash", "javascript", "typescript", "java", "c", "lua", "vim", "vimdoc", "query" },
@@ -49,7 +13,7 @@ return {
 
             -- Automatically install missing parsers when entering buffer
             -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-            auto_install = true,
+            auto_install = false,
 
             -- List of parsers to ignore installing (for "all")
             --  ignore_install = { "javascript" },
