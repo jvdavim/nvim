@@ -81,7 +81,6 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"pyright",
-					"ruff",
 					"gopls",
 					"csharp_ls",
 					"tsserver",

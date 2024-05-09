@@ -29,7 +29,7 @@ return {
 			lua = { "stylua" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
-					return { "usort", "ruff_format" }
+					return { "isort", "ruff_format" }
 				else
 					return { "isort", "black" }
 				end
