@@ -17,10 +17,10 @@ vim.keymap.set("n", "Q", "<nop>", { desc = "noop" })
 vim.keymap.set("n", "<leader>vs", vim.cmd.vsplit, { desc = "[v]ertical [s]plit" })
 
 vim.keymap.set(
-    "n",
-    "<leader>e",
-    "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
-    { noremap = true, silent = true }
+	"n",
+	"<leader>e",
+	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
+	{ noremap = true, silent = true }
 )
 
 --
