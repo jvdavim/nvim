@@ -14,8 +14,8 @@ return {
     },
     opts = {
         formatters_by_ft = {
-            javascript = { "eslint_d", { "prettierd", "prettier" } },
-            typescript = { "eslint_d", { "prettierd", "prettier" } },
+            javascript = { { "eslint_d", "prettierd", "prettier" } },
+            typescript = { { "eslint_d", "prettierd", "prettier" } },
             javascriptreact = { { "prettierd", "prettier" } },
             typescriptreact = { { "prettierd", "prettier" } },
             svelte = { { "prettierd", "prettier" } },
@@ -25,7 +25,7 @@ return {
             yaml = { { "prettierd", "prettier" } },
             markdown = { { "prettierd", "prettier" } },
             graphql = { { "prettierd", "prettier" } },
-            csharp = { { "dotnet-csharpier" } },
+            csharp = { "dotnet-csharpier" },
             lua = { "stylua" },
             python = function(bufnr)
                 if require("conform").get_formatter_info("ruff_format", bufnr).available then
