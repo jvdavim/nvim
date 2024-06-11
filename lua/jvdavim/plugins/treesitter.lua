@@ -1,12 +1,12 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    version = "*",
     build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.install").prefer_git = true
         require("nvim-treesitter.configs").setup({
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
-            --	ensure_installed = { "python", "c_sharp", "go", "sql", "bash", "javascript", "typescript", "java", "c", "lua", "vim", "vimdoc", "query" },
-            ensure_installed = "all",
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
@@ -43,15 +43,6 @@ return {
                 -- Instead of true it c
                 -- init_selection = "."an also be a list of languages
                 additional_vim_regex_highlighting = false,
-            },
-
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "<CR>",
-                    node_incremental = "<CR>",
-                    node_decremental = "<BS>",
-                },
             },
         })
     end,
