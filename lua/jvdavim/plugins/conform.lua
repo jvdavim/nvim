@@ -41,6 +41,7 @@ return {
         format_on_save = false,
     },
     config = function()
+        require("conform").setup()
         require("conform.formatters.eslint_d").cwd = require("conform.util").root_file({
             ".eslint.js",
             ".eslint.cjs",
