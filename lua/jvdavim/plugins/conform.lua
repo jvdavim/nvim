@@ -20,6 +20,7 @@ return {
             typescriptreact = { { "prettierd", "prettier" } },
             svelte = { { "prettierd", "prettier" } },
             css = { { "prettierd", "prettier" } },
+            scss = { { "prettierd", "prettier" } },
             html = { { "prettierd", "prettier" } },
             json = { { "jq", "prettierd", "prettier" } },
             yaml = { { "prettierd", "prettier" } },
