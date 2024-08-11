@@ -2,9 +2,9 @@ return {
     'VidocqH/lsp-lens.nvim',
     config = function()
         require 'lsp-lens'.setup({
-            enable = true,
-            include_declaration = false, -- Reference include declaration
-            sections = {                 -- Enable / Disable specific request, formatter example looks 'Format Requests'
+            enable = false,
+            include_declaration = false,
+            sections = {
                 definition = false,
                 references = true,
                 implements = true,
