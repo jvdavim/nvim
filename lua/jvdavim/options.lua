@@ -20,4 +20,7 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "+1,80,120"
+-- vim.opt.colorcolumn = "+1,80,120"
+
+vim.opt.list = true
+vim.opt.lcs = "tab:»·,trail:·,space:·"
