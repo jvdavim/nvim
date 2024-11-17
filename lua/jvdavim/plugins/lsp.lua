@@ -83,7 +83,7 @@ return {
                     "pyright",
                     "gopls",
                     "csharp_ls",
-                    "tsserver",
+                    "ts_ls",
                     "eslint",
                     "angularls",
                     "html",
