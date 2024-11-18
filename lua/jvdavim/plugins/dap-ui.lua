@@ -55,6 +55,7 @@ return {
         end
         vim.keymap.set("n", "<leader>b", "<cmd> DapToggleBreakpoint <CR>")
         vim.keymap.set("n", "<leader>db", "<cmd> DapContinue <CR>")
+        vim.keymap.set("n", "<leader>dt", function() require("dapui").toggle() end, { silent = true })
         vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
         vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
         require("dap.ext.vscode").load_launchjs()

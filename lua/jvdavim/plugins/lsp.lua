@@ -48,6 +48,27 @@ return {
         end,
     },
 
+    -- Auto populate workspace diagnostics
+    {
+        "artemave/workspace-diagnostics.nvim",
+        event        = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "folke/trouble.nvim",
+        },
+        keys         = {
+            {
+                "<leader>pw",
+                function()
+                    for _, client in ipairs(vim.lsp.get_clients()) do
+                        require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
+                    end
+                end,
+                desc = "Populate workspace diagnostics"
+            }
+        },
+    },
+
     -- LSP
     {
         "neovim/nvim-lspconfig",
@@ -56,6 +77,7 @@ return {
         dependencies = {
             { "hrsh7th/cmp-nvim-lsp" },
             { "williamboman/mason-lspconfig.nvim" },
+            { "artemave/workspace-diagnostics.nvim" },
         },
         config = function()
             -- This is where all the LSP shenanigans will live
@@ -82,7 +104,7 @@ return {
                 ensure_installed = {
                     "pyright",
                     "gopls",
-                    "csharp_ls",
+                    "omnisharp",
                     "ts_ls",
                     "eslint",
                     "angularls",
@@ -95,7 +117,11 @@ return {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
                     function(server_name)
-                        require("lspconfig")[server_name].setup({})
+                        require("lspconfig")[server_name].setup({
+                            on_attach = function(client, bufnr)
+                                require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+                            end
+                        })
                     end,
 
                     -- this is the "custom handler" for `lua_ls`
