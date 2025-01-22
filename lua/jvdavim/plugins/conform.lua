@@ -6,7 +6,7 @@ return {
         {
             "<leader>fw",
             function()
-                require("conform").format({ lsp_fallback = true, async = true })
+                require("conform").format({ async = true })
             end,
             mode = "",
             desc = "Format file or range (in visual mode)",
@@ -14,42 +14,28 @@ return {
     },
     opts = {
         formatters_by_ft = {
-            javascript = { { "eslint_d", "prettierd", "prettier" } },
-            typescript = { { "eslint_d", "prettierd", "prettier" } },
-            javascriptreact = { { "prettierd", "prettier" } },
-            typescriptreact = { { "prettierd", "prettier" } },
-            svelte = { { "prettierd", "prettier" } },
-            css = { { "prettierd", "prettier" } },
-            scss = { { "prettierd", "prettier" } },
-            html = { { "prettierd", "prettier" } },
-            json = { { "jq", "prettierd", "prettier" } },
-            yaml = { { "prettierd", "prettier" } },
-            markdown = { { "prettierd", "prettier" } },
-            graphql = { { "prettierd", "prettier" } },
+            javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+            typescript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+            javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+            typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+            svelte = { "prettierd", "prettier", stop_after_first = true },
+            css = { "prettierd", "prettier", stop_after_first = true },
+            scss = { "prettierd", "prettier", stop_after_first = true },
+            html = { "prettierd", "prettier", stop_after_first = true },
+            json = { "jq", "prettierd", "prettier", stop_after_first = true },
+            yaml = { "prettierd", "prettier", stop_after_first = true },
+            markdown = { "prettierd", "prettier", stop_after_first = true },
+            graphql = { "prettierd", "prettier", stop_after_first = true },
             csharp = { "dotnet-csharpier" },
             lua = { "stylua" },
-            python = function(bufnr)
-                if require("conform").get_formatter_info("ruff_format", bufnr).available then
-                    return { "isort", "ruff_format" }
-                else
-                    return { "isort", "black" }
-                end
-            end,
-            go = { { "gofmt", "gofumpt" } },
+            python = { "ruff_format" },
+            go = { "gofmt", "gofumpt", stop_after_first = true },
             bash = { "shfmt" },
             sh = { "shfmt" },
         },
+        default_format_opts = {
+            lsp_format = "fallback",
+        },
         format_on_save = false,
-    },
-    config = function()
-        require("conform").setup()
-        require("conform.formatters.eslint_d").cwd = require("conform.util").root_file({
-            ".eslint.js",
-            ".eslint.cjs",
-            ".eslint.yaml",
-            ".eslint.yml",
-            ".eslint.json",
-        })
-        require("conform.formatters.eslint_d").require_cwd = true
-    end,
+    }
 }
