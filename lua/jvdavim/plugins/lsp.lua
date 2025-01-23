@@ -5,39 +5,6 @@ return {
 		config = true,
 	},
 
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
-		},
-		config = function()
-			-- Configure the autocompletion settings.
-			local cmp = require("cmp")
-
-			cmp.setup({
-				formatting = {
-					format = function(_, vim_item)
-						-- Customize the display of completion items
-						return vim_item
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<C-Tab>"] = cmp.mapping.select_next_item(),
-					["<C-Space>"] = cmp.mapping.complete(),
-				}),
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-			})
-		end,
-	},
-
-	-- Auto populate workspace diagnostics
 	{
 		"artemave/workspace-diagnostics.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -58,15 +25,14 @@ return {
 		},
 	},
 
-	-- LSP
 	{
 		"neovim/nvim-lspconfig",
 		cmd = { "LspInfo", "LspInstall", "LspStart" },
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "williamboman/mason-lspconfig.nvim" },
-			{ "artemave/workspace-diagnostics.nvim" },
+			"saghen/blink.cmp",
+			"williamboman/mason-lspconfig.nvim",
+			"artemave/workspace-diagnostics.nvim",
 		},
 		opts = {
 			servers = {
@@ -93,13 +59,16 @@ return {
 				automatic_installation = true,
 				handlers = {
 					function(server_name)
+						local capabilities = require("blink.cmp").get_lsp_capabilities()
 						require("lspconfig")[server_name].setup({
 							on_attach = function(client, bufnr)
 								require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 							end,
+							capabilities = capabilities,
 						})
 					end,
 					["lua_ls"] = function()
+						local capabilities = require("blink.cmp").get_lsp_capabilities()
 						require("lspconfig").lua_ls.setup({
 							settings = {
 								Lua = {
@@ -117,6 +86,7 @@ return {
 									},
 								},
 							},
+							capabilities = capabilities,
 						})
 					end,
 				},
