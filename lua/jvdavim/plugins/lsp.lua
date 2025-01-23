@@ -18,7 +18,7 @@ return {
 
 			cmp.setup({
 				formatting = {
-					format = function(entry, vim_item)
+					format = function(_, vim_item)
 						-- Customize the display of completion items
 						return vim_item
 					end,
@@ -86,7 +86,9 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"pyright",
-					"gopls",
+					"ruff",
+					"csharpier",
+					"omnisharp",
 				},
 				automatic_installation = true,
 				handlers = {
@@ -97,7 +99,7 @@ return {
 							end,
 						})
 					end,
-					lua_ls = function()
+					["lua_ls"] = function()
 						require("lspconfig").lua_ls.setup({
 							settings = {
 								Lua = {
