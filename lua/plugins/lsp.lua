@@ -103,25 +103,29 @@ return {
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
                     local map = function(keys, func, desc)
-                        vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = 'LSP: ' .. desc })
+                        vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
                     end
 
-                    map("gd", require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-                    map("gi", require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementations')
-                    map("gr", require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-                    map("gD", vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-                    map("K", vim.lsp.buf.hover, 'Hover')
-                    map("<C-i>", vim.lsp.buf.signature_help, 'Signature help')
-                    map("<leader>ds", require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-                    map("<leader>ws", require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-                    map("<leader>wa", vim.lsp.buf.add_workspace_folder, '[W]orksapce [A]dd folder')
-                    map("<leader>wr", vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove folder')
+                    map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+                    map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementations")
+                    map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+                    map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+                    map("K", vim.lsp.buf.hover, "Hover")
+                    map("<C-i>", vim.lsp.buf.signature_help, "Signature help")
+                    map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+                    map(
+                        "<leader>ws",
+                        require("telescope.builtin").lsp_dynamic_workspace_symbols,
+                        "[W]orkspace [S]ymbols"
+                    )
+                    map("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orksapce [A]dd folder")
+                    map("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove folder")
                     map("<leader>wl", function()
                         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                    end, '[W]orkspace [L]ist folders')
-                    map("<leader>D", require('telescope.builtin').lsp_references, 'Type [D]efinitions')
-                    map("<leader>rn", vim.lsp.buf.rename, '[R]e[N]ame')
-                    map("<leader>ca", vim.lsp.buf.code_action, '[C]ode [A]ction')
+                    end, "[W]orkspace [L]ist folders")
+                    map("<leader>D", require("telescope.builtin").lsp_references, "Type [D]efinitions")
+                    map("<leader>rn", vim.lsp.buf.rename, "[R]e[N]ame")
+                    map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 end,
             })
         end,
