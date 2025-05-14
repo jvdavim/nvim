@@ -1,6 +1,6 @@
 return {
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         lazy = false,
         opt = {}
     },
@@ -31,7 +31,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "saghen/blink.cmp",
-            "williamboman/mason-lspconfig.nvim",
+            "mason-org/mason-lspconfig.nvim",
             "artemave/workspace-diagnostics.nvim",
         },
         opts = {
