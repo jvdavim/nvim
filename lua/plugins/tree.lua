@@ -14,6 +14,7 @@ return {
 
             -- remove defaults
             vim.keymap.del('n', '<C-e>', { buffer = bufnr })
+            vim.keymap.del('n', 'f', {buffer = bufnr})
 
             -- custom mappings
             vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
