@@ -1,5 +1,6 @@
 return {
     "mrjones2014/smart-splits.nvim",
+    version = "2.0.4",
     config = function()
         require("smart-splits").setup({
             -- Ignored filetypes (only while resizing)
@@ -11,7 +12,7 @@ return {
             -- Ignored buffer types (only while resizing)
             ignored_buftypes = { "NvimTree" },
             -- the default number of lines/columns to resize by at a time
-            default_amount = 3,
+            default_amount = 5,
             -- Desired behavior when your cursor is at an edge and you
             -- are moving towards that same edge:
             -- 'wrap' => Wrap to opposite side

@@ -1,7 +1,7 @@
 return {
     "saghen/blink.cmp",
-    dependencies = { 'rafamadriz/friendly-snippets' },
-    build = 'cargo +nightly build --release',
+    dependencies = { "rafamadriz/friendly-snippets" },
+    build = "cargo +nightly build --release",
     opts = {
         sources = {
             -- add lazydev to your completion providers

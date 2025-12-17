@@ -1,7 +1,7 @@
 return {
-    'VidocqH/lsp-lens.nvim',
+    "VidocqH/lsp-lens.nvim",
     config = function()
-        require 'lsp-lens'.setup({
+        require("lsp-lens").setup({
             enable = false,
             include_declaration = false,
             sections = {
@@ -13,5 +13,5 @@ return {
         })
         local lens = require("lsp-lens.lens-util")
         vim.keymap.set("n", "<leader>l", lens.lsp_lens_toggle)
-    end
+    end,
 }
