@@ -1,12 +1,14 @@
-return {
-    "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
-    opts = {
-        library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            { path = "lazy.nvim", words = { "LazyVim" } },
-        },
-    },
-}
+local spec = { "folke/lazydev.nvim" }
+vim.pack.add({ spec[1] })
+
+pcall(function()
+    -- try to configure if module present
+    local ok, mod = pcall(require, "lazydev")
+    if ok and type(mod.setup) == "function" then
+        mod.setup({
+            library = {
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        })
+    end
+end)

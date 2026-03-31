@@ -1,18 +1,8 @@
-return {
-    "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
-    keys = {
-        {
-            "<leader>fw",
-            function()
-                require("conform").format({ async = true })
-            end,
-            mode = "",
-            desc = "Format file or range (in visual mode)",
-        },
-    },
-    opts = {
+local spec = { "stevearc/conform.nvim" }
+vim.pack.add({ spec[1] })
+
+pcall(function()
+    require("conform").setup({
         formatters_by_ft = {
             javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
             typescript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
@@ -34,16 +24,11 @@ return {
             bash = { "shfmt" },
             sh = { "shfmt" },
         },
-        formatters = {
-            stylua = {
-                -- IMPORTANT: pass flag and value as separate args
-                prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
-            },
-        },
-        default_format_opts = {
-            lsp_format = "fallback",
-        },
+        formatters = { stylua = { prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" } } },
+        default_format_opts = { lsp_format = "fallback" },
         format_on_save = false,
         log_level = vim.log.levels.DEBUG,
-    },
-}
+    })
+
+    vim.keymap.set("n", "<leader>fw", function() require("conform").format({ async = true }) end)
+end)
