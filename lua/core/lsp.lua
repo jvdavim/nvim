@@ -2,6 +2,7 @@ vim.lsp.enable({
     "lua-ls",
     "gopls",
     "html",
+    "jdtls",
     "ty",
     "ruff",
     "tailwindcss",

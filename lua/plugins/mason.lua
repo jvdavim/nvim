@@ -12,6 +12,7 @@ return {
             "eslint_d",
             "gopls",
             "html-lsp",
+            "jdtls",
             "jq",
             "lua-language-server",
             "prettierd",

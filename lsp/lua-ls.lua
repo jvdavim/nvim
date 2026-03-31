@@ -1,4 +1,3 @@
-local blink = require("blink.cmp")
 return {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
@@ -35,7 +34,6 @@ return {
         "force",
         {},
         vim.lsp.protocol.make_client_capabilities(),
-        blink.get_lsp_capabilities(),
         {
             fileOperations = {
                 didRename = true,
