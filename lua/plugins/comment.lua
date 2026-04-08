@@ -1,5 +1,9 @@
-local spec = { "numToStr/Comment.nvim" }
-vim.pack.add({ spec[1] })
+vim.pack.add({ "numToStr/Comment.nvim" })
+
 pcall(function()
-    require("Comment").setup()
+    require("Comment").setup({
+        pre_hook = function()
+            return vim.bo.commentstring
+        end,
+    })
 end)

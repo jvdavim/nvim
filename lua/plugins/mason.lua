@@ -1,7 +1,6 @@
 local repo = "williamboman/mason.nvim"
 vim.pack.add({ repo })
 vim.pack.add({ "WhoIsSethDaniel/mason-tool-installer.nvim" })
-vim.pack.add({ "williamboman/mason-lspconfig.nvim" })
 
 pcall(function()
     -- Make sure mason's bin path is available to subprocesses
@@ -20,25 +19,13 @@ pcall(function()
         mti.setup({
             ensure_installed = {
                 "angular-language-server",
-                "csharp-language-server",
-                "csharpier",
                 "debugpy",
-                "delve",
-                "dockerfile-language-server",
-                "eslint-lsp",
-                "eslint_d",
-                "gopls",
                 "html-lsp",
-                "jdtls",
                 "jq",
                 "lua-language-server",
-                "prettierd",
                 "pyright",
                 "ruff",
-                "ruff-lsp",
-                "rust-analyzer",
                 "shfmt",
-                "sonarlint-language-server",
                 "stylua",
                 "tailwindcss-language-server",
                 "ty",
@@ -50,9 +37,4 @@ pcall(function()
         })
     end
 
-    -- Ensure mason-lspconfig is present and setup to bridge mason and lspconfig
-    local ok3, mls = pcall(require, "mason-lspconfig")
-    if ok3 and type(mls.setup) == "function" then
-        mls.setup()
-    end
 end)
