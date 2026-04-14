@@ -3,7 +3,7 @@ vim.lsp.enable({
     "gopls",
     "html",
     "jdtls",
-    "ty",
+    "pyright",
     "ruff",
     "tailwindcss",
     "ts-ls",

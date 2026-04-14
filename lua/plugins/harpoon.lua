@@ -1,4 +1,5 @@
 local spec = { "ThePrimeagen/harpoon" }
+vim.pack.add({ "nvim-lua/plenary.nvim" })
 vim.pack.add({ spec[1] })
 
 pcall(function()
