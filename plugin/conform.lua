@@ -18,6 +18,7 @@ pcall(function()
             markdown = { "prettierd", "prettier", stop_after_first = true },
             graphql = { "prettierd", "prettier", stop_after_first = true },
             csharp = { "dotnet-csharpier" },
+            kotlin = { "ktlint" },
             lua = { "stylua", stop_after_first = true },
             python = { "ruff_format" },
             go = { "gofmt", "gofumpt", stop_after_first = true },

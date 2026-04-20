@@ -1,8 +1,9 @@
-local M = {}
+-- Wraps vim.pack.add() to accept short GitHub repo names (e.g. "folke/snacks.nvim")
+-- instead of requiring the full URL. Neovim 0.12+ only.
 
 if type(vim.pack) ~= "table" or type(vim.pack.add) ~= "function" then
     vim.notify("vim.pack.add is not available (requires Neovim 0.12+)", vim.log.levels.ERROR)
-    return M
+    return
 end
 
 local builtin_pack_add = vim.pack.add
@@ -45,16 +46,3 @@ end
 vim.pack.add = function(spec)
     return builtin_pack_add(normalize_spec(spec))
 end
-
-local config_path = vim.fn.stdpath("config")
-local files = vim.fn.glob(config_path .. "/lua/plugins/*.lua", false, true)
-table.sort(files)
-
-for _, path in ipairs(files) do
-    local mod = path:match(config_path .. "/lua/(.+)%.lua$")
-    if mod then
-        pcall(require, mod)
-    end
-end
-
-return M

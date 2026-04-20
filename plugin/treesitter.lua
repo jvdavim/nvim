@@ -5,6 +5,8 @@ pcall(function()
     local ts = require("nvim-treesitter")
     local languages = {
         "c",
+        "c_sharp",
+        "kotlin",
         "lua",
         "vim",
         "vimdoc",

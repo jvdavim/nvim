@@ -19,10 +19,15 @@ pcall(function()
         mti.setup({
             ensure_installed = {
                 "angular-language-server",
+                "csharpier",
                 "debugpy",
                 "html-lsp",
                 "jq",
+                "kotlin-language-server",
+                "ktlint",
                 "lua-language-server",
+                "netcoredbg",
+                "omnisharp",
                 "pyright",
                 "ruff",
                 "shfmt",
