@@ -3,6 +3,8 @@ vim.lsp.enable({
     "gopls",
     "html",
     "jdtls",
+    "kotlin-language-server",
+    "omnisharp",
     "pyright",
     "ruff",
     "tailwindcss",
