@@ -1,9 +1,7 @@
 return {
     cmd = { "pyright-langserver", "--stdio" },
-    -- Prevent pyright from automatically attaching to python buffers.
-    -- We prefer to use 'ty' as the active Python language server in this
-    -- configuration. Keeping the pyright config present allows manual
-    -- use if needed, but an empty filetypes list prevents auto-attachment.
+    -- Keep pyright available for workspace diagnostics while ty owns the
+    -- interactive Telescope-backed navigation for Python buffers.
     filetypes = { "python" },
     root_markers = {
         "pyproject.toml",
@@ -12,7 +10,19 @@ return {
         "requirements.txt",
         "Pipfile",
         "pyrightconfig.json",
+        ".git",
     },
+    on_attach = function(client)
+        for _, capability in ipairs({
+            "definitionProvider",
+            "implementationProvider",
+            "referencesProvider",
+            "typeDefinitionProvider",
+            "documentSymbolProvider",
+        }) do
+            client.server_capabilities[capability] = false
+        end
+    end,
     settings = {
         python = {
             analysis = {

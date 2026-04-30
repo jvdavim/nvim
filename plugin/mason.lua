@@ -14,32 +14,25 @@ pcall(function()
         mason.setup({ PATH = "append" })
     end
 
+    local lsp = require("lsp")
+    lsp.setup()
+
     local ok2, mti = pcall(require, "mason-tool-installer")
     if ok2 and type(mti.setup) == "function" then
         mti.setup({
             ensure_installed = {
-                "angular-language-server",
+                unpack(lsp.mason_packages),
                 "csharpier",
                 "debugpy",
-                "html-lsp",
                 "jq",
-                "kotlin-language-server",
                 "ktlint",
-                "lua-language-server",
                 "netcoredbg",
-                "omnisharp",
-                "pyright",
-                "ruff",
                 "shfmt",
                 "stylua",
-                "tailwindcss-language-server",
-                "ty",
-                "typescript-language-server",
             },
             auto_update = false,
             run_on_start = true,
             start_delay = 3000,
         })
     end
-
 end)

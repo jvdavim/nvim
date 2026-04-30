@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("gi", tele.lsp_implementations, "[G]oto [I]mplementations")
         map("gr", tele.lsp_references, "[G]oto [R]eferences")
         map("<leader>ds", tele.lsp_document_symbols, "[D]ocument [S]ymbols")
-        map("<leader>D", tele.lsp_references, "Type [D]efinitions")
+        map("<leader>D", tele.lsp_type_definitions, "Type [D]efinitions")
 
         map("<leader>e", vim.diagnostic.open_float, "Open Diagnostic Float")
         map("K", vim.lsp.buf.hover, "Hover Documentation")

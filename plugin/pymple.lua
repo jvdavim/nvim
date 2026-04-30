@@ -1,12 +1,12 @@
-local spec = { "alexpasmantier/pymple.nvim" }
-vim.pack.add({ spec[1] })
-
 -- dependencies used by pymple
 vim.pack.add({ "nvim-lua/plenary.nvim" })
 vim.pack.add({ "MunifTanjim/nui.nvim" })
 -- optional niceties
 vim.pack.add({ "stevearc/dressing.nvim" })
 vim.pack.add({ "nvim-tree/nvim-web-devicons" })
+
+local spec = { "alexpasmantier/pymple.nvim" }
+vim.pack.add({ spec[1] })
 
 pcall(function()
     -- Defer setup until after startup so other plugin modules (like
@@ -19,9 +19,9 @@ pcall(function()
                 return
             end
 
-    pcall(function()
-        pymple.setup()
-    end)
+            pcall(function()
+                pymple.setup({})
+            end)
         end,
     })
 end)
