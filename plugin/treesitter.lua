@@ -14,9 +14,23 @@ pcall(function()
         "python",
         "java",
         "gitcommit",
+        "yaml",
+        "gotmpl",
+        "helm",
     }
 
     ts.setup({ install_dir = vim.fn.stdpath("data") .. "/site" })
+
+    vim.filetype.add({
+        extension = {
+            gotmpl = "gotmpl",
+        },
+        pattern = {
+            [".*/templates/.*%.tpl"] = "helm",
+            [".*/templates/.*%.ya?ml"] = "helm",
+            ["helmfile.*%.ya?ml"] = "helm",
+        },
+    })
 
     if vim.fn.executable("tree-sitter") == 1 then
         ts.install(languages)

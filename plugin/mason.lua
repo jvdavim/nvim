@@ -21,14 +21,15 @@ pcall(function()
     if ok2 and type(mti.setup) == "function" then
         mti.setup({
             ensure_installed = {
-                unpack(lsp.mason_packages),
                 "csharpier",
                 "debugpy",
                 "jq",
                 "ktlint",
                 "netcoredbg",
+                "pyrefly",
                 "shfmt",
                 "stylua",
+                "tree-sitter-cli",
             },
             auto_update = false,
             run_on_start = true,

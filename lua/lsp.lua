@@ -5,6 +5,7 @@ vim.lsp.enable({
     "jdtls",
     "kotlin-language-server",
     "omnisharp",
+    "pyrefly",
     "pyright",
     "ty",
     "ruff",
